@@ -1,0 +1,26 @@
+{% extends "home/index.html" %}
+{% block content %}
+    <h2>Emloyees loaded from Excel file</h2>
+    <table border="1">
+        <tr>
+            {% for column in columns %}
+            <td>{{column}}</td>
+            {% endfor %}
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            {% for employee_data in employee %}
+                <td>{{employee_data}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <form action="/update/" method="GET">
+        {% csrf_token %}
+        <label>Upload data from excel file to database!</label>
+        <input type="hidden" name="update" value="true">
+        <input type="submit" value="UPDATE!">
+    </form>
+    <a href="{% url 'employees' %}">View employees in Database</a>
+{% endblock content %}

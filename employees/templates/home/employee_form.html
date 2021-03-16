@@ -1,0 +1,14 @@
+{% extends "home/index.html" %}
+{% block content %}
+    <h2>Update employee information</h2>
+    </br>
+    </br>
+    {% load crispy_forms_tags %}
+
+     <form method="POST">
+         {% csrf_token %}
+         {{ form|crispy }}
+         <button type="submit">Update</button>
+     </form>
+    <a href="{% url 'employee-detail' employees.id %}">Back</a>
+{% endblock content %}

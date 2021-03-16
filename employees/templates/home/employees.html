@@ -1,0 +1,28 @@
+{% extends "home/index.html" %}
+{% block content %}
+    <h2>Emloyees loaded from Database</h2>
+    <table border="1">
+        <tr>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Salary</td>
+            <td>Start Date</td>
+            <td>Mobile</td>
+            <td>Employee ID</td>
+            <td>&nbsp;</td>
+        </tr>
+        {% for employee in employees %}
+            <tr>
+                <td>{{employee.first_name}}</td>
+                <td>{{employee.last_name}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.start_date}}</td>
+                <td>{{employee.mobile}}</td>
+                <td>{{employee.emp_id}}</td>
+                <td><a href="{% url 'employee-detail' employee.id %}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'home' %}">View employees in Excel file</a>
+{% endblock content %}

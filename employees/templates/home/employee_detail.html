@@ -1,0 +1,27 @@
+{% extends "home/index.html" %}
+{% block content %}
+<h1>More information about employee</h1>
+    <table border="1">
+        <tr>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Salary</td>
+            <td>Start Date</td>
+            <td>Mobile</td>
+            <td>Employee ID</td>
+        </tr>
+        <tr>
+            <td>{{employees.first_name}}</td>
+            <td>{{employees.last_name}}</td>
+            <td>{{employees.salary}}</td>
+            <td>{{employees.start_date}}</td>
+            <td>{{employees.mobile}}</td>
+            <td>{{employees.emp_id}}</td>
+        </tr>
+    </table>
+    <a href="{% url 'employee-update' employees.id %}">Update</a>
+    <a href="{% url 'employee-delete' employees.id %}">Delete</a>
+    </br>
+    </br>
+    <a href="{% url 'employees' %}">Back to all employees</a>
+{% endblock content %}
